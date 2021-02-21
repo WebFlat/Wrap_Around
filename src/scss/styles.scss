@@ -1,0 +1,290 @@
+@import 'normalize';
+@import 'mixins';
+@import 'slick-theme';
+@import 'slick';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap');
+
+
+
+$default-color: #ffffff;
+$secondary-color: #000000;
+$hot-color: #D01917;
+$green-color: #33F0A9;
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 100%;
+	width: 100%;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 500;
+	background: $default-color;
+}
+
+
+
+
+
+
+//Helpers*******************************************
+
+
+
+.card {
+	width: 100vw;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: $secondary-color;
+	background: $default-color;
+	&__wrapper {
+		max-width: 1440px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 94px 60px 83px 60px;
+		display: flex;
+	}
+	&__left-side {
+		width: 759px;
+		max-width: 759px;
+		overflow: hidden;
+	}
+	&__right-side {
+		width: 558px;
+	}
+	&__prev-block {
+		display: flex;
+		justify-content: space-between;
+
+	}
+	&__prev-aside {
+		width: 203px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	&__img-wrap,
+	&__preview {
+		position: relative;
+		width: 100%;
+		height: 166px;
+		border: 2px solid #E3E2E2;
+	}
+	&__img-wrap {
+		cursor: pointer;
+		@include tr(border, .15s);
+		&:hover,
+		&:active {
+			border: 2px solid $green-color;
+		}
+		&.active {
+			border: 2px solid $green-color;
+			
+		}
+	}
+	&__img {
+		@include myPos();
+		max-width: 100%;
+	}
+	&__preview {
+		margin-left: 20px;
+		width: 539px;
+		height: 539px;
+	}
+	&__descriptions {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&__description {
+		margin-top: 30px;
+		padding: 20px 12px 20px 12px;
+		text-align: center;
+		max-width: 147px;
+		width: 147px;
+		background: $green-color;
+		margin-right: 30px;
+	}
+	&__description-title {
+		text-transform: uppercase;
+		font-size: 1.8rem;
+		line-height: 2.16rem;
+	}
+	&__description-text {
+		margin-top: 5px;
+		font-size: 1.6rem;
+		line-height: 2.24rem;
+		font-weight: 400;
+	}
+	&__right-side {
+		padding-left: 20px;
+	}
+	&__title {
+		font-size: 4.6rem;
+		font-weight: 500;
+		text-transform: uppercase;
+	}
+	&__items {
+		margin-top: 35px;
+	}
+	&__item {
+		padding: 0 0 50px 0;
+	}
+	&__item-titles {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-bottom: 5px;
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 2px;
+			background: $secondary-color;
+			position: absolute;
+			bottom: 0;
+		}
+	}
+	&__item-title,
+	&__price {
+		font-weight: 500;
+		line-height: 3.6rem;
+		font-size: 2.4rem;
+		text-transform: uppercase;
+	}
+	&__prices {
+		text-align: right;
+		display: flex;
+	}
+	&__price {
+		&--hot {
+			color: #D01917;
+		}
+		&--old {
+			margin-right: 5px;
+			position: relative;
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				height: 2.13px;
+				width: 100%;
+				bottom: 47%;
+				transform: translateY(50%);
+				background: #D01917;
+			}
+		}
+	}
+	&__prev-btns {
+		margin-top: 18px;
+		display: flex;
+	}
+	&__prev-btn {
+		cursor: pointer;
+	}
+	&__img-mini {
+		@include myPos();
+		max-width: 100%;
+	}
+	&__img-mini-wrap {
+		width: 54px;
+		height: 44px;
+		position: relative;
+		overflow: hidden;
+	}
+	&__prev-btn {
+		margin-right: 9px;
+		position: relative;
+		border: 2px solid transparent;
+		&.sale {
+			&::after {
+				content: 'SALE';
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 34px;
+				height: 16px;
+				text-transform: uppercase;
+				color: $default-color;
+				background: red;
+				position: absolute;
+				top: 0;
+				right: 0;
+				font-size: 1rem;
+			}
+		}
+		&:hover > .card__img-title {
+			opacity: 1;
+		}
+		
+	}
+	&__img-title {
+		display: block;
+		opacity: 0;
+		position: absolute;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		font-weight: 400;
+		bottom: -25px;
+		left: -10px;
+		width: 80px;
+		text-align: center;
+		@include tr(opacity, .15s);
+	}
+	&__btns {
+		position: relative;
+		z-index: 5;
+	}
+	&__btn {
+		cursor: pointer;
+		display: block;
+		width: 100%;
+		height: 74px;
+		max-width: 530px;
+		border: none;
+		font-size: 1.6rem;
+		line-height: 2.4rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		background: $green-color;
+		position: relative;
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: $secondary-color;
+			bottom: -10px;
+			right: -8px;
+			z-index: -1;
+		}
+		&--build {
+			margin-top: 17px;
+			background: $secondary-color;
+			color: $green-color;
+			&::after {
+				background: $green-color;
+			}
+		}
+	}
+}
+.active {
+	border: 2px solid $green-color;
+}
+
+
+
+
+
+
+
+
