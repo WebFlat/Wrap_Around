@@ -109,8 +109,10 @@ body {
 		text-align: center;
 		max-width: 147px;
 		width: 147px;
+		min-height: 154px;
 		background: $green-color;
 		margin-right: 30px;
+		overflow: hidden;
 	}
 	&__description-title {
 		text-transform: uppercase;
