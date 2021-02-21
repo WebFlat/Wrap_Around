@@ -3,7 +3,15 @@
 @import 'slick-theme';
 @import 'slick';
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap');
-
+@font-face {
+    font-family: "HelveticaRegular";
+    src: url("../fonts/HelveticaRegular/HelveticaRegular.eot");
+    src: url("../fonts/HelveticaRegular/HelveticaRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/HelveticaRegular/HelveticaRegular.woff") format("woff"),
+    url("../fonts/HelveticaRegular/HelveticaRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
 
 
 $default-color: #ffffff;
@@ -120,6 +128,7 @@ body {
 		line-height: 2.16rem;
 	}
 	&__description-text {
+		font-family: "HelveticaRegular";
 		margin-top: 5px;
 		font-size: 1.6rem;
 		line-height: 2.24rem;
@@ -229,15 +238,16 @@ body {
 		
 	}
 	&__img-title {
+		font-family: "HelveticaRegular";
 		display: block;
 		opacity: 0;
 		position: absolute;
 		font-size: 1.6rem;
-		line-height: 2rem;
+		line-height: 1.9rem;
 		font-weight: 400;
 		bottom: -25px;
-		left: -10px;
-		width: 80px;
+		left: -20px;
+		width: 100px;
 		text-align: center;
 		@include tr(opacity, .15s);
 	}
